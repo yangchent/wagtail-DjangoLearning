@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+
+{% image self.banner_image width-1400 as img %}
+
+<div class="jumbotron" 
+style="background: url('{{ img.url }}') no-repeat center/cover; 
+color: orange;">
+    <h1 class="display-4 pl-5 ml-5">{{ self.banner_title }}</h1>
+    <div class="lead pl-5 ml-5">{{ self.banner_subtitle|richtext }}</div>
+    {% if self.banner_cta %}
+      <a class="btn btn-primary btn-md rounded-pill ml-5" href="#" role="button">@todo</a>
+      {% endif %}
+  </div>
+
+{% endblock %}
